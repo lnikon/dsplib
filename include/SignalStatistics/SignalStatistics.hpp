@@ -1,9 +1,9 @@
 #pragma once
 
 #include <iostream>
-
 #include <vector>
 #include <optional>
+#include <cmath>
 
 template <class SignalType>
 struct SignalStatistics final {
@@ -204,8 +204,6 @@ std::optional<SignalType> SignalStatistics<SignalType>::standardDeviation() cons
 template <class SignalType>
 std::optional<SignalType> SignalStatistics<SignalType>::standardDeviationHelper() const
 {
-  using SigSrcIt = typename decltype(m_signalSource)::iterator;
-
   const auto blkSize = m_signalSource.size();
   if(blkSize == 1) {
       return std::nullopt;
@@ -215,7 +213,7 @@ std::optional<SignalType> SignalStatistics<SignalType>::standardDeviationHelper(
 
   auto sum = SignalType{};
   auto sumOfSqrs = SignalType{};
-  auto it = {std::begin(m_signalSource)};
+  auto it = m_signalSource.begin();
   auto in = SignalType{};
 
   auto blkCnt{0u};
@@ -223,9 +221,6 @@ std::optional<SignalType> SignalStatistics<SignalType>::standardDeviationHelper(
   auto meanOfSquares = SignalType{};
   auto mean = SignalType{};
   auto squareOfMean = SignalType{}; 
-  auto squareOfSum = SignalType{};
-
-  auto variance = SignalType{};
 
   blkCnt = blkSize >> 2;
 
