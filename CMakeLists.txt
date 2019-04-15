@@ -38,13 +38,13 @@ set(CMAKE_BUILD_TYPE Debug)                                            #
 ################ END <Template> #########################################
 
 ################ START <Template> #######################################
-file(GLOB SIGNAL_STATISTICS_HPP "${CMAKE_SOURCE_DIR}/include/SignalStatistics/*.hpp")# 
+file(GLOB SIGNAL_STATISTICS_HPP "${CMAKE_SOURCE_DIR}/include/SignalStatistics/*.hpp")#
 file(GLOB SIGNAL_STATISTICS_CPP "${CMAKE_SOURCE_DIR}/src/SignalStatistics/*.cpp")    # #
 add_library(SignalStatistics STATIC ${SIGNAL_STATISTICS_HPP} ${SIGNAL_STATISTICS_CPP})      #
                                                                         #
 target_include_directories(SignalStatistics PUBLIC include/SignalStatistics)        #
 target_compile_features(SignalStatistics PUBLIC cxx_std_17)                   #
-target_compile_options(SignalStatistics PUBLIC -Wall -Werror -pedantic)
+target_compile_options(SignalStatistics PUBLIC -Wall -pedantic)
 # set_target_properties(calculator PROPERTIES CXX_STANDARD 17)            #
 ################ END <Template> #########################################
 

@@ -14,7 +14,6 @@ SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 flags = [
 '-Wall',
 '-Wextra',
-'-Werror',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
